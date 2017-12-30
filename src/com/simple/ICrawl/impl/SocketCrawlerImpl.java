@@ -45,10 +45,16 @@ public class SocketCrawlerImpl implements ICrawler {
 
 			// 接受返回的结果
 			br = new BufferedReader(new InputStreamReader(socket.getInputStream()));
+
+			StringBuffer sb = new StringBuffer();
 			String line = null;
 			while ((line = br.readLine()) != null) {
-				System.out.println(line);
+				// System.out.println(line);
+				sb.append(line + "\n");
 			}
+			crawlResultPojo.setSuccess(true);
+			crawlResultPojo.setPageContent(sb.toString());
+			return crawlResultPojo;
 		} catch (Exception e) {
 			e.printStackTrace();
 		} finally {
@@ -65,13 +71,6 @@ public class SocketCrawlerImpl implements ICrawler {
 			}
 		}
 		return null;
-	}
-
-	public static void main(String[] args) {
-		SocketCrawlerImpl socketCrawlerImpl = new SocketCrawlerImpl();
-		UrlPojo urlPojo = new UrlPojo("http://www.baidu.com");
-		socketCrawlerImpl.crawl(urlPojo);
-		System.out.println("运行结束！");
 	}
 
 }
