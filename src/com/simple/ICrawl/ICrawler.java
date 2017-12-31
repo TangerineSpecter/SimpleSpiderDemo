@@ -5,5 +5,5 @@ import com.simple.pojos.UrlPojo;
 
 public interface ICrawler {
 
-	public CrawlResultPojo crawl(UrlPojo urlpojo);
+	public CrawlResultPojo crawl(UrlPojo urlPojo);
 }
