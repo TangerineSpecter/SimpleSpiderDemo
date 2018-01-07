@@ -11,6 +11,12 @@ import com.simple.ICrawl.ICrawler;
 import com.simple.pojos.CrawlResultPojo;
 import com.simple.pojos.UrlPojo;
 
+/**
+ * Socket方式
+ * 
+ * @author 丢失的橘子
+ *
+ */
 public class SocketCrawlerImpl implements ICrawler {
 
 	@Override
