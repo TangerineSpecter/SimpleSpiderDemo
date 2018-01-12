@@ -1,7 +1,8 @@
 package com.simple.pojos;
 
-import java.net.MalformedURLException;
+import java.net.HttpURLConnection;
 import java.net.URL;
+import java.net.URLConnection;
 
 import com.simple.pojos.enumeration.TaskLevel;
 
@@ -43,11 +44,26 @@ public class UrlPojo {
 		this.taskLevel = taskLevel;
 	}
 
+	public HttpURLConnection getConnection() {
+		try {
+			URL url = new URL(this.url);
+			URLConnection connection = url.openConnection();
+			if (connection instanceof HttpURLConnection) {
+				return (HttpURLConnection) url.openConnection();
+			} else {
+				throw new Exception("connection is error!");
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return null;
+	}
+
 	public String getHost() {
 		try {
 			URL url = new URL(this.url);
 			return url.getHost();
-		} catch (MalformedURLException e) {
+		} catch (Exception e) {
 			e.printStackTrace();
 		}
 		return null;
