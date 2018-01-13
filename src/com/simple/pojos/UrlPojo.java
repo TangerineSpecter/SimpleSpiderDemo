@@ -4,7 +4,7 @@ import java.net.HttpURLConnection;
 import java.net.URL;
 import java.net.URLConnection;
 
-import com.simple.pojos.enumeration.TaskLevel;
+import com.simple.enumeration.TaskLevel;
 
 /**
  * url任务的pojo类
